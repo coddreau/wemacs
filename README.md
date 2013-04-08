@@ -1,4 +1,4 @@
 wemacs
 ======
 
-Text editor built to run on a WebView, with keybindings inspired on Emacs
+Text editor built to run on a WebView, with key bindings inspired on Emacs
