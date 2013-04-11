@@ -22,7 +22,4 @@ emacsCommand = function(editor) {
   };
 }
 
-ace.commands.addCommand({name: 'acemacs', bindKey: {win: 'Esc'}, exec: emacsCommand});
-
-
-
+editor.commands.addCommand({name: 'acemacs', bindKey: {win: 'Esc'}, exec: emacsCommand});
