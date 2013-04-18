@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'therubyracer', :platforms => :ruby
+gem 'coffee-script'
+gem 'sass'
+gem 'slim'
+gem 'rack'

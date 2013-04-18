@@ -1,2 +1,4 @@
-*.html
-
+server/public/*.html
+server/stylesheets/*.css
+server/javascripts/*.js
+*.sassc
