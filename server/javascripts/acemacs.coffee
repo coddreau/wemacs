@@ -6,6 +6,9 @@ commands =
 
 commands.c.description = "Clears the document"
 
+saveCurrentDocument = (editor) ->
+  $.post '/save', file: window.currentFile, content: editor.getSession().getDocument().getValue()
+
 emacsCommand = (editor) ->
   editor.blur()
   window.onkeydown = (e) ->
@@ -18,3 +21,4 @@ emacsCommand = (editor) ->
     return false
 
 editor.commands.addCommand(name: 'acemacs', bindKey: {win: 'Esc'}, exec: emacsCommand)
+editor.commands.addCommand(name: 'save', bindKey: {win: 'Ctrl-S'}, exec: saveCurrentDocument)
