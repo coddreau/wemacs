@@ -1,8 +1,10 @@
 $ ->
   getFile = (e) ->
     e.preventDefault()
-    console.log $(this).attr("href")
-
+    $.get "/file", file: $(this).attr("href"), (content) ->
+      editor.selection.selectAll()
+      editor.insert content
+    
   $.get "/project_files", (response) ->
     for file in response
       link = $("<a>", href: file, text: file).on("click", getFile)
