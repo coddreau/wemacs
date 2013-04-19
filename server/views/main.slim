@@ -3,8 +3,13 @@ html
     link href="/stylesheets/main.css" rel="stylesheet"
   body
     #code
-      puts "Hello, world!"
+    #file-browser
+      ul
+    .clear
     script src="/javascripts/ace/ace.js" type="text/javascript" charset="utf-8"
     javascript:
       editor = ace.edit('code')
-    script src="/javascripts/acemacs.js" type="text/javascript" charset="utf-8"
+      editor.setShowPrintMargin(false)
+    script src="/javascripts/acemacs.js"
+    script src="/javascripts/jquery/jquery.js"
+    script src="/javascripts/filebrowser.js"
