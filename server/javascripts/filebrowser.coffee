@@ -5,6 +5,7 @@ $ ->
     $.get "/file", file: file, (content) ->
       editor.selection.selectAll()
       editor.insert content
+      editor.focus()
       window.currentFile = file
     
   $.get "/project_files", (response) ->
