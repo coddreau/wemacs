@@ -11,6 +11,7 @@ class Commands
   
   def file
     file = @params['file'].gsub(/^\//,'')
+    file = "#{ServerRoot}/#{file}"
     [200, {'Content-Type' => 'text/plain'}, [File.read(file)]]
   rescue Errno::ENOENT
     [404, {'Content-Type' => 'text/plain'}, ["File #{file} not found."]]
@@ -18,6 +19,7 @@ class Commands
   
   def save
     file = @params['file'].gsub(/^\//,'')
+    file = "#{ServerRoot}/#{file}"
     content = @params['content']
     File.write file, content
     [200, {'Content-Type' => 'text/plain'}, ["Ok"]]
