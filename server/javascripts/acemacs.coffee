@@ -1,3 +1,6 @@
+@editor = ace.edit('code')
+@editor.setShowPrintMargin(false)
+
 commands =
   c: (editor) ->
     editor.selection.selectAll()
@@ -20,5 +23,5 @@ emacsCommand = (editor) ->
     relatedFunc?(editor)
     return false
 
-editor.commands.addCommand(name: 'acemacs', bindKey: {win: 'Esc'}, exec: emacsCommand)
-editor.commands.addCommand(name: 'save', bindKey: {win: 'Ctrl-S'}, exec: saveCurrentDocument)
+@editor.commands.addCommand(name: 'acemacs', bindKey: {win: 'Esc'}, exec: emacsCommand)
+@editor.commands.addCommand(name: 'save', bindKey: {win: 'Ctrl-S'}, exec: saveCurrentDocument)

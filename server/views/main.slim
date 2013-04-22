@@ -7,9 +7,12 @@ html
       ul
     .clear
     script src="/javascripts/ace/ace.js" type="text/javascript" charset="utf-8"
-    javascript:
-      editor = ace.edit('code')
-      editor.setShowPrintMargin(false)
     script src="/javascripts/acemacs.js"
     script src="/javascripts/jquery/jquery.js"
+    script src="/javascripts/mode-config.js"
     script src="/javascripts/filebrowser.js"
+
+    / Preloaded modes
+    script type="text/javascript" charset="utf-8" src="/javascripts/ace/mode-ruby.js"
+    script type="text/javascript" charset="utf-8" src="/javascripts/ace/mode-coffee.js"
+    script type="text/javascript" charset="utf-8" src="/javascripts/ace/mode-sass.js"
