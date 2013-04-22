@@ -1,5 +1,6 @@
 @editor = ace.edit('code')
 @editor.setShowPrintMargin(false)
+@editor.setDisplayIndentGuides(false)
 
 commands =
   c: (editor) ->
