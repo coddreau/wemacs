@@ -5,7 +5,8 @@ class Commands
   end  
   
   def project_files
-    [200, {'Content-Type' => 'application/json'}, [Dir.glob("*").to_json]]
+    files = Dir.glob("#{ServerRoot}/*").map{|f| File.basename f}.sort
+    [200, {'Content-Type' => 'application/json'}, [files.to_json]]
   end
   
   def file

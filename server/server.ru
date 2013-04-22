@@ -1,6 +1,8 @@
 require 'json'
 require './lib/assets'
 
+ServerRoot = File.dirname(__FILE__)
+
 class WEmacs
   def call(env)
     Assets.compile
@@ -12,7 +14,7 @@ class WEmacs
   end
   
   def run_command(env)
-    load './lib/commands.rb'
+    load "#{ServerRoot}/lib/commands.rb"
     command = env["PATH_INFO"][/(\w+)$/, 1]
     Commands.new(env).send(command)
   end
@@ -25,7 +27,8 @@ class WEmacs
                      'css' => 'text/css',
                      'html' => 'text/html' }[extension]
     file = "public/#{file}" if extension == 'html'
-    [200, {'Content-Type' => content_type}, [File.read(file)]]
+    full_path = [ServerRoot, file].join('/')
+    [200, {'Content-Type' => content_type}, [File.read(full_path)]]
   end
 end
 
