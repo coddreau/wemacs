@@ -1,7 +1,10 @@
+@import 'mixins'
+
 body
   margin: 0
-  font-family: Helvetica
+  font-family: 'Ubuntu', 'Helvetica'
   font-size: 13px
+  
 #code
   position: absolute
   float: left
@@ -9,6 +12,9 @@ body
   height: 600px
 #file-browser
   width: 150px
+  height: 600px
+  overflow: auto
+  overfloy-x: hidden
   float: left
   margin-left: 650px
 .clear
@@ -18,5 +24,20 @@ body
   font-family: 'Ubuntu Mono', 'Monaco', 'Menlo', 'Consolas', 'source-code-pro', monospace
   font-size: 14px
   
-//.ace_scrollbar
-//  display: none !important
+#file-open  
+  display: none
+  position: relative
+  z-index: 4
+  width: 500px
+  height: 220px
+  background-color: #fff
+  border: 1px solid #ccc
+  padding: 5px
+  @include border-radius
+  ul
+    margin: 0
+    padding: 0
+    height: 200px
+  input 
+    height: 20px
+    width: 100%

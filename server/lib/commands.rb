@@ -5,8 +5,10 @@ class Commands
   end  
   
   def project_files
-    files = Dir.glob("#{ServerRoot}/*").map{|f| File.basename f}.sort
-    [200, {'Content-Type' => 'application/json'}, [files.to_json]]
+    filter = (@params['filter'] if @params['filter'].to_s.strip != '')
+    files = Dir.glob("#{ServerRoot}/**/*").map{|f| File.basename f}
+    files.select!{|f| f =~ /#{filter}/} if filter
+    [200, {'Content-Type' => 'application/json'}, [files.sort.to_json]]
   end
   
   def file

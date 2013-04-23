@@ -7,6 +7,10 @@ commands =
     editor.selection.selectAll()
     editor.insert("")
     editor.focus()
+  o: (editor) ->
+    window.keyboardInUse = true
+    window.fileOpen ||= new FileOpen("#file-open")
+    fileOpen.show()
 
 commands.c.description = "Clears the document"
 
@@ -16,10 +20,11 @@ saveCurrentDocument = (editor) ->
 emacsCommand = (editor) ->
   editor.blur()
   window.onkeydown = (e) ->
+    return if window.keyboardInUse
     editor.focus() if (!editor.isFocused() && e.keyCode == 27) 
     return true if editor.isFocused()
   window.onkeyup = (e) ->
-    return true if editor.isFocused()
+    return true if window.keyboardInUse or editor.isFocused()
     relatedFunc = commands[String.fromCharCode(e.keyCode).toLowerCase()]
     relatedFunc?(editor)
     return false
