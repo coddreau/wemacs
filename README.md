@@ -21,6 +21,6 @@ python wemacs.py
 * Make file browser optional
 * Make scrollbars optional
 * Add a command for opening files
-* Minify compiled assets
+* Minify all JS and add into one file only. Same for CSS.
 * Add multiple editors in one screen
 * Place all compiled files on public/ folder
