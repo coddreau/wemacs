@@ -2,12 +2,13 @@ wemacs
 ======
 Text editor built to run on a WebView, with key bindings inspired on Emacs.
 
-The project aims to have an extensible UI (hence the use of HTML) and have a clean code, so Slim, SASS and CoffeeScript are being used.
+The project aims to have an extensible UI (hence the use of HTML) and have a clean code, so Slim, SASS and CoffeeScript are being used. Also Ruby 1.9.3+ is required.
 
 After cloning, you may run it with:
 ```sh
 cd wemacs/server
 bundle
+mkdir public
 rackup -D -p 5000 server.ru
 cd ..
 python wemacs.py
